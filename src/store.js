@@ -2,7 +2,10 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
-const initialState = {};
+//this is is official initialState for the app aka the base state put in store
+// const initialState = {};
+const initialState = { contact: { contacts: [{ name: 'Rick' }] } };
+
 
 const middleware = [thunk];
 

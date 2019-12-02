@@ -13,14 +13,15 @@ class Contacts extends Component {
 
 
   render() {
+    console.log(16, contacts)
     const { contacts } = this.props;
     return (
       <React.Fragment>
         <h1 className="display-4 mb-2">
           <span className="text-danger">Contact</span> List
         </h1>
-        {contacts.map(contact => (
-          <Contact key={contact.id} contact={contact} />
+        {contacts.map((contact, index) => (
+          <Contact key={index} contact={contact} />
         ))}
       </React.Fragment>
     );
@@ -33,6 +34,11 @@ Contacts.propTypes = {
 }
 
 // to get state as props
+// you can access state anywhere in the app via the connect method
+// note state of the app done via store and is different then state of component
+// remember if state should persist across components it should go in the store
+// if only one component uses some state just do local state no reason to use a store
+// note we do state.contact as we are in the contact reducer see folder contactReducer.js and index.js
 //this.props.contacts
 const mapStateToProps = (state) => ({
   contacts: state.contact.contacts
